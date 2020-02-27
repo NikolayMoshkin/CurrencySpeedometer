@@ -5,8 +5,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec($ch);
 curl_close($ch);
 $json = json_decode($response, true);
-$usd_now = 64.5;
-//$usd_now = round($json['Valute']['USD']['Value'], 1);
+$usd_now = round($json['Valute']['USD']['Value'], 1);
 $usd_was = round($json['Valute']['USD']['Previous'], 1);
 $eur_now = round($json['Valute']['EUR']['Value'], 1);
 $eur_was = round($json['Valute']['EUR']['Previous'], 1);
@@ -268,8 +267,7 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
 
         let startScorePosition = Math.floor(min);
         let endScorePosition = Math.ceil(max);
-        console.log(max);
-        console.log(endScorePosition);
+
         return {
             "min" : startScorePosition,
             "max" : endScorePosition
