@@ -131,20 +131,22 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
             font-size: 0.7em;
         }
 
-        .speedbox__ping i {
+        .speedbox__cur i {
             font-size: 20px;
             margin-bottom: 0.2em;
         }
 
-        .speedbox__up {
+        .speedbox__was {
             font-size: 18px;
             line-height: 0.6em;
+            color: #7b2727;
         }
 
-        .speedbox__down {
+        .speedbox__now {
             font-size: 25px;
             text-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
             line-height: 1.2em;
+            color: #1e5188;
         }
 
         .speedbox__start {
@@ -172,9 +174,9 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
     <div class="speedbox__score_was" id="speedbox-score-usd-was"></div>
     <div class="speedbox__groove"></div>
     <div class="speedbox__odo">
-        <div class="speedbox__ping"><i class="fa fa-usd"></i></div>
-        <div class="speedbox__up"><small>was </small> <span id="usd_was"><?= $usd_was ?></span><small> rub</small></div>
-        <div class="speedbox__down"><small>now </small> <span id="usd_now"><?= $usd_now ?></span><small> rub</small></div>
+        <div class="speedbox__cur"><i class="fa fa-usd"></i></div>
+        <div class="speedbox__was"><small>was </small> <span id="usd_was"><?= $usd_was ?></span><small> rub</small></div>
+        <div class="speedbox__now"><small>now </small> <span id="usd_now"><?= $usd_now ?></span><small> rub</small></div>
     </div>
     <div class="speedbox__start" id="usd_start"></div>
     <div class="speedbox__end" id="usd_end"></div>
@@ -187,9 +189,9 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
     <div class="speedbox__score_was" id="speedbox-score-eur-was"></div>
     <div class="speedbox__groove"></div>
     <div class="speedbox__odo">
-        <div class="speedbox__ping"><i class="fa fa-eur"></i></div>
-        <div class="speedbox__up"><small>was </small> <span id="eur_was"><?= $eur_was ?></span><small> rub</small></div>
-        <div class="speedbox__down"><small>now </small> <span id="eur_now"><?= $eur_now ?></span><small> rub</small></div>
+        <div class="speedbox__cur"><i class="fa fa-eur"></i></div>
+        <div class="speedbox__was"><small>was </small> <span id="eur_was"><?= $eur_was ?></span><small> rub</small></div>
+        <div class="speedbox__now"><small>now </small> <span id="eur_now"><?= $eur_now ?></span><small> rub</small></div>
     </div>
     <div class="speedbox__start" id="eur_start"></div>
     <div class="speedbox__end" id="eur_end"></div>
