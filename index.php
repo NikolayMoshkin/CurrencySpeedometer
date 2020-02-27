@@ -208,10 +208,11 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
         let curUsdWas = parseFloat($("#usd_was").text());
 
         let maxCurUsd = curUsdNow > curUsdWas ? curUsdNow : curUsdWas;
-        let minCurUsd = curUsdNow > curUsdWas ? curUsdNow : curUsdWas;
+        let minCurUsd = curUsdNow > curUsdWas ? curUsdWas : curUsdNow;
 
-        let startScorePosition = Math.floor(minCurUsd/10) * 10;
-        let endScorePosition = Math.ceil(maxCurUsd/10) * 10;
+        let initScoreValues = getInitScoreValues(minCurUsd, minCurUsd);
+        let startScorePosition = initScoreValues.min;
+        let endScorePosition = initScoreValues.max;
 
         usd_start.innerHTML = startScorePosition;
         usd_end.innerHTML = endScorePosition;
@@ -234,10 +235,11 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
         let curEurWas = parseFloat($("#eur_was").text());
 
         let maxCurEur= curEurNow > curEurWas ? curEurNow : curEurWas;
-        let minCurEur = curEurNow > curEurWas ? curEurNow : curEurWas;
+        let minCurEur = curEurNow > curEurWas ? curEurWas : curEurNow;
 
-        let startScorePosition = Math.floor(maxCurEur/10) * 10;
-        let endScorePosition = Math.ceil(minCurEur/10) * 10;
+        let initScoreValues = getInitScoreValues(minCurEur, minCurEur);
+        let startScorePosition = initScoreValues.min;
+        let endScorePosition = initScoreValues.max;
 
         eur_start.innerHTML = startScorePosition;
         eur_end.innerHTML = endScorePosition;
@@ -259,6 +261,17 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
         return ((Math.round(score * 10) / 10) - start) * 90/(end-start);
     }
 
+    function getInitScoreValues(min, max){
+        let curDiff = Math.ceil(max - min);
+
+        let startScorePosition = Math.floor(min - curDiff);
+        let endScorePosition = Math.ceil(max + curDiff);
+
+        return {
+            "min" : startScorePosition,
+            "max" : endScorePosition
+        }
+    }
 
 
 </script>
