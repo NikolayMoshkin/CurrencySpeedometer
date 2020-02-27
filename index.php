@@ -265,10 +265,9 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
     }
 
     function getInitScoreValues(min, max){
-        let curDiff = Math.ceil(max - min);
 
-        let startScorePosition = Math.floor(min - curDiff);
-        let endScorePosition = Math.ceil(max + curDiff);
+        let startScorePosition = Math.floor(min);
+        let endScorePosition = Math.ceil(max);
         console.log(max);
         console.log(endScorePosition);
         return {
