@@ -9,6 +9,7 @@ $usd_now = round($json['Valute']['USD']['Value'], 1);
 $usd_was = round($json['Valute']['USD']['Previous'], 1);
 $eur_now = round($json['Valute']['EUR']['Value'], 1);
 $eur_was = round($json['Valute']['EUR']['Previous'], 1);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -70,7 +71,6 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
             border: 20px solid #1e5188;
             border-color: transparent transparent #1e5188 #1e5188;
             box-sizing: border-box;
-            cursor: pointer;
             z-index: 3;
         }
 
@@ -86,7 +86,6 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
             border: 20px solid #7b2727;
             border-color: transparent transparent #7b2727  #7b2727;
             box-sizing: border-box;
-            cursor: pointer;
             z-index: 4;
 
         }
@@ -223,7 +222,9 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
         let rotateScoreWasValue = getRotateDegree(curUsdWas, startScorePosition, endScorePosition);
 
         $("#speedbox-score-usd-now").css("transform", "rotate(" + rotateScoreNowValue + "deg)");
+        $("#speedbox-score-usd-now").css("transition", "1s");
         $("#speedbox-score-usd-was").css("transform", "rotate(" + rotateScoreWasValue + "deg)");
+        $("#speedbox-score-usd-was").css("transition", "1s");
 
         let zindexNow = curUsdNow > curUsdWas? '1' : '3';
         let zindexWas = curUsdNow > curUsdWas? '3' : '1';
@@ -250,7 +251,9 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
         let rotateScoreWasValue = getRotateDegree(curEurWas, startScorePosition, endScorePosition);
 
         $("#speedbox-score-eur-now").css("transform", "rotate(" + rotateScoreNowValue + "deg)");
+        $("#speedbox-score-eur-now").css("transition", "1s");
         $("#speedbox-score-eur-was").css("transform", "rotate(" + rotateScoreWasValue + "deg)");
+        $("#speedbox-score-eur-was").css("transition", "1s");
 
         let zindexNow = curEurNow > curEurWas? '1' : '3';
         let zindexWas = curEurNow > curEurWas? '3' : '1';
@@ -260,7 +263,7 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
     })();
 
     function getRotateDegree(score, start, end){
-        return (score- start) * 135/(end - start);
+        return ((score - start) * 180/(end - start)) - 45;
     }
 
     function getInitScoreValues(min, max){
