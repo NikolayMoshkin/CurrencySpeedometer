@@ -62,7 +62,7 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
             position: absolute;
             left: 0;
             top: 0;
-            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
             height: 200px;
             width: 200px;
             background: transparent;
@@ -78,7 +78,7 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
             position: absolute;
             left: 0;
             top: 0;
-            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
             height: 200px;
             width: 200px;
             background: transparent;
@@ -260,7 +260,7 @@ $eur_was = round($json['Valute']['EUR']['Previous'], 1);
     })();
 
     function getRotateDegree(score, start, end){
-        return ((Math.round(score * 10) / 10) - start) * 90/(end-start);
+        return (score- start) * 135/(end - start);
     }
 
     function getInitScoreValues(min, max){
